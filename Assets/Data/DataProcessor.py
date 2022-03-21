@@ -11,7 +11,7 @@ def selectHalos(xLimit, yLimit, zLimit, outPath):
     
     halo_InRange = halo_InRange[["x","y","z"]];
     
-    halo_InRange.to_csv(outPath, index=False);
+    halo_InRange.to_csv(outPath, index=False, header=False);
     
 
 if __name__ == "__main__":
