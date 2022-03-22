@@ -14,6 +14,7 @@ public class Generator : MonoBehaviour
     public GameObject void_Parent;
     GameObject tempHalo;
     GameObject tempVoid;
+    ParticleSystem.ShapeModule sh;
     void Start()
     {
         using(var reader = new StreamReader(Halo_Path))
@@ -44,11 +45,14 @@ public class Generator : MonoBehaviour
                 float voidScale = float.Parse(values[3]);
                 tempVoid.transform.localScale = new Vector3(voidScale, voidScale, voidScale);
 
+                sh = tempVoid.GetComponentInChildren<ParticleSystem>().shape;
+                sh.radius = voidScale/2;
+
                 tempVoid.transform.parent = void_Parent.transform;
                 
             }
 
-            PrefabUtility.SaveAsPrefabAsset(halo_Parent, "Assets/Prefabs/Generated_Voids.prefab");
+            PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
         }
     }
 
