@@ -14,6 +14,8 @@ public class Generator : MonoBehaviour
     public GameObject cell_Prefab;
     public GameObject halo_Parent;
     public GameObject void_Parent;
+
+    public float cellScaleFacter = 500;
     GameObject tempHalo;
     GameObject tempVoid;
     GameObject tempParticle;
@@ -67,8 +69,9 @@ public class Generator : MonoBehaviour
 
                 tempParticle = Instantiate(cell_Prefab, new Vector3(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2])),Quaternion.identity);
                 
-                // float cellScale = float.Parse(values[3]);
-                // tempParticle.transform.localScale = new Vector3(cellScale, cellScale, cellScale);
+                float cellScale = float.Parse(values[3]);
+                cellScale = cellScale/cellScaleFacter;
+                tempParticle.transform.localScale = new Vector3(cellScale, cellScale, cellScale);
 
                 // tempParticle.transform.parent = cell_Parent.transform;
                 
