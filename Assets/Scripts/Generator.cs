@@ -8,12 +8,15 @@ public class Generator : MonoBehaviour
 {
     string Halo_Path = @"O:\UnityProj\Voids-VR-Scene_Unity\Assets\Data\halos_In_100.dat";
     string Void_Path = @"O:\UnityProj\Voids-VR-Scene_Unity\Assets\Data\voids_In_100.dat";
+    string Particle_path = @"O:\UnityProj\Voids-VR-Scene_Unity\Assets\Data\output.txt";
     public GameObject halo_Prefab;
     public GameObject void_Prefab;
+    public GameObject cell_Prefab;
     public GameObject halo_Parent;
     public GameObject void_Parent;
     GameObject tempHalo;
     GameObject tempVoid;
+    GameObject tempParticle;
     ParticleSystem.ShapeModule sh;
     void Start()
     {
@@ -54,11 +57,28 @@ public class Generator : MonoBehaviour
 
             PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
         }
+
+        using(var reader = new StreamReader(Particle_path))
+        {
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(' ');
+
+                tempParticle = Instantiate(cell_Prefab, new Vector3(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2])),Quaternion.identity);
+                
+                // float cellScale = float.Parse(values[3]);
+                // tempParticle.transform.localScale = new Vector3(cellScale, cellScale, cellScale);
+
+                // tempParticle.transform.parent = cell_Parent.transform;
+                
+            }
+
+            // PrefabUtility.SaveAsPrefabAsset(cell_Parent, "Assets/Prefabs/Generated_cells.prefab");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void generatePrefab(string filePath){
+
     }
 }

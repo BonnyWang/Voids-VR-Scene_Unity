@@ -781,6 +781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleporting
       objectReference: {fileID: 0}
+    - target: {fileID: 153878, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -860,6 +864,8 @@ MonoBehaviour:
     type: 3}
   void_Prefab: {fileID: 7007762098070118414, guid: 39decb2d05e84fb4dbf37040ef70b44a,
     type: 3}
+  cell_Prefab: {fileID: 4945685324324518484, guid: dd7aa44bd6517594d9decf364a62e95c,
+    type: 3}
   halo_Parent: {fileID: 1262789635}
   void_Parent: {fileID: 592335351}
 --- !u!4 &1144052836
@@ -919,7 +925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
