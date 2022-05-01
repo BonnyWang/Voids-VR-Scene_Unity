@@ -23,7 +23,7 @@ def selectVoids(xLimit, yLimit, zLimit, outPath, outputCell = false, cellOutpath
         for void in void_InRange["voidID"]:
             selectCells(void, cellOutpath);
     
-    void_InRange = void_InRange[["x","y","z", "radius(Mpc/h)"]];
+    void_InRange = void_InRange[["x","y","z", "radius(Mpc/h)", "voidID"]];
     
     void_InRange.to_csv(outPath, index=False, header=False);
     
