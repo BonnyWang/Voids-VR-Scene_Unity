@@ -20,6 +20,8 @@ public class Generator : MonoBehaviour
     GameObject tempVoid;
     GameObject tempParticle;
     ParticleSystem.ShapeModule sh;
+
+
     void Start()
     {
         using(var reader = new StreamReader(Halo_Path))
@@ -63,6 +65,8 @@ public class Generator : MonoBehaviour
 
         using(var reader = new StreamReader(Particle_path))
         {
+            Transform currentVoid = null;
+            Color mColor = new Color(1,0,0);
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
@@ -76,10 +80,22 @@ public class Generator : MonoBehaviour
 
                 tempParticle.transform.parent = GameObject.Find(values[4]).transform;
                 
+                // Change color for different voids
+                if(tempParticle.transform.parent != currentVoid){
+                    currentVoid = tempParticle.transform.parent;
+                    mColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.1f, 0.2f);
+
+                    Material mMaterial = tempParticle.GetComponent<Material>();
+                    Debug.Log("Changed color " + tempParticle.transform.parent.name + " " + mColor);
+                }
+                tempParticle.GetComponent<Renderer>().material.SetColor("_EmissionColor",mColor);
+                
+                
             }
         
+        }
+
         PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
-    }
 
     // void generatePrefab(string filePath){
 
