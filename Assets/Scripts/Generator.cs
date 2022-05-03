@@ -92,10 +92,12 @@ public class Generator : MonoBehaviour
                 
                 
             }
+            
+            PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
         
         }
 
-        PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
+       
 
     // void generatePrefab(string filePath){
 
