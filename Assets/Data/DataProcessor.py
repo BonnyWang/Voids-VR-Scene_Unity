@@ -1,3 +1,4 @@
+import math
 import pandas as pd
 from sqlalchemy import false, true;
 
@@ -21,18 +22,27 @@ def selectVoids(xLimit, yLimit, zLimit, outPath, outputCell = false, cellOutpath
     
     if outputCell:
         for void in void_InRange["voidID"]:
-            selectCells(void, cellOutpath);
+            voidx = float(void_InRange.loc[void_InRange["voidID"] == void]["x"]);
+            voidy = float(void_InRange.loc[void_InRange["voidID"] == void]["y"]);
+            voidz = float(void_InRange.loc[void_InRange["voidID"] == void]["z"]);
+            
+            selectCells(void, cellOutpath, voidx,voidy,voidz);
     
-    void_InRange = void_InRange[["x","y","z", "radius(Mpc/h)", "voidID"]];
+    void_InRange = void_InRange[["x","y","z", "radius(Mpc/h)", "voidID", "densitycontrast"]];
     
     void_InRange.to_csv(outPath, index=False, header=False);
     
-def selectCells(voidID, outPath):
+def selectCells(voidID, outPath, voidx, voidy, voidz):
     cells_Data = pd.read_csv(Cell_Path, sep=" ");
     
-    cell = cells_Data.loc[cells_Data["voidID"] == voidID];
+    # Drop cells that are too far from the void center
+    cells_Data["distance"] =  ((cells_Data["x"] -voidx).pow(2) + (cells_Data["y"] -voidy).pow(2)+ (cells_Data["z"] -voidz).pow(2)).pow(1/2);
     
-    cell.to_csv(outPath, index= False, header=False, mode="a");
+    cell = cells_Data.loc[(cells_Data["voidID"] == voidID) & (cells_Data["distance"] < 500) ];
+    
+    cell = cell.drop("distance", axis=1);
+    
+    cell.to_csv(outPath, index= False, header=False,mode="a");
       
 
 if __name__ == "__main__":

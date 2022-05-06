@@ -57,6 +57,8 @@ public class Generator : MonoBehaviour
 
                 tempVoid.transform.parent = void_Parent.transform;
                 tempVoid.name = values[4];
+
+                tempVoid.GetComponentInChildren<TMPro.TextMeshPro>().text = "Void ID:" + values[4].ToString() + "\n" + "Density Contrast: " + values[5].ToString();
                 
             }
 
@@ -90,12 +92,14 @@ public class Generator : MonoBehaviour
                 }
                 tempParticle.GetComponent<Renderer>().material.SetColor("_EmissionColor",mColor);
                 
-                
             }
             
-            PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
+            
         
         }
+
+        // PrefabUtility.SaveAsPrefabAsset(void_Parent, "Assets/Prefabs/Generated_Voids.prefab");
+
 
        
 

@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: e247d804dd5b65240a263f83b56de695, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -246,7 +246,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &599916901
 GameObject:
@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_LocalPosition.x
@@ -662,7 +662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1262573253
 GameObject:
@@ -699,8 +699,8 @@ Camera:
   m_GameObject: {fileID: 1262573253}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -852,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1262789636, guid: c861a65a56a890440a4b31307c1cd93d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1262789636, guid: c861a65a56a890440a4b31307c1cd93d, type: 3}
       propertyPath: m_LocalPosition.x
