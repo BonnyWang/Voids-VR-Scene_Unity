@@ -46,5 +46,5 @@ def selectCells(voidID, outPath, voidx, voidy, voidz):
       
 
 if __name__ == "__main__":
-    # selectHalos(100,100,100,"./halos_In_100.dat");
-    selectVoids(100,100,100,"./voids_In_100.dat",true, "./cells_In_100.dat");
+    selectHalos(200,200,200,"./halos_In_200.dat");
+    selectVoids(200,200,200,"./voids_In_200.dat",true, "./cells_In_200.dat");
